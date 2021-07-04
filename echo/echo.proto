@@ -1,0 +1,24 @@
+syntax="proto3";
+package echo;
+
+option go_package = ".;echo";
+
+message EchoRequest{
+    string message = 1;
+}
+
+message EchoResponse{
+    string message = 2;
+}
+
+service EchoService{
+    
+    rpc UnaryEcho(EchoRequest) returns (EchoResponse){};
+
+    rpc ServerStreamingEcho (EchoRequest) returns (stream EchoResponse){};
+
+    rpc ClientStreamingEcho (stream EchoRequest) returns (EchoResponse){};
+
+    rpc BidirectionalStreamingEcho (stream EchoRequest) returns (stream EchoResponse);
+}
+
