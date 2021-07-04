@@ -5,6 +5,11 @@ grpc 样例
 3、服务端流
 4、双向流
 
+开发步骤 (需要安装protoc，安装grpc插件)
+1、编写proto文件 (*.proto)
+2、生成.pb.go文件, 命令 proto -I. --go_out=<.pb.go的输出路径> --plugin=grpc:. <proto文件路径,eg: hello/hello.proto>
+3、编写服务并注册服务 (grpc.go)
+
 grpc服务启动步骤
 1、go mod tidy
 2、go mod vendor
